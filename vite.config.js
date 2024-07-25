@@ -18,4 +18,14 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './src/assets'),
     },
   },
+  server: {
+    port: 7023,
+    proxy: {
+      '/auth/google': {
+        target: 'https://webapp-healix-prod.azurewebsites.net',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/auth\/google/, '/auth/google')
+      }
+    }
+  },
 })
