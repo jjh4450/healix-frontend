@@ -23,6 +23,9 @@ importers:
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
+      js-cookie:
+        specifier: ^3.0.5
+        version: 3.0.5
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -32,6 +35,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      react-kakao-login:
+        specifier: ^2.1.1
+        version: 2.1.1(react@18.3.1)
       react-router-dom:
         specifier: ^6.25.1
         version: 6.25.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1337,6 +1343,10 @@ packages:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
     hasBin: true
 
+  js-cookie@3.0.5:
+    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
+    engines: {node: '>=14'}
+
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -1634,6 +1644,11 @@ packages:
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  react-kakao-login@2.1.1:
+    resolution: {integrity: sha512-t9htk41/i0zUY7q92mtqdqVZZ018BPi1DgbSVVrPCmuMKhZGJOnZ9OfaKLVPu3sn8QXbJc3dPwqKOiElpb44hQ==}
+    peerDependencies:
+      react: '>= 15.3.0'
 
   react-router-dom@6.25.1:
     resolution: {integrity: sha512-0tUDpbFvk35iv+N89dWNrJp+afLgd+y4VtorJZuOCXK0kkCWjEvb3vTJM++SYvMEpbVwXKf3FjeVveVEb6JpDQ==}
@@ -3294,6 +3309,8 @@ snapshots:
 
   jiti@1.21.6: {}
 
+  js-cookie@3.0.5: {}
+
   js-tokens@4.0.0: {}
 
   js-yaml@4.1.0:
@@ -3556,6 +3573,10 @@ snapshots:
       scheduler: 0.23.2
 
   react-is@16.13.1: {}
+
+  react-kakao-login@2.1.1(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   react-router-dom@6.25.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

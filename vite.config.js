@@ -20,12 +20,8 @@ export default defineConfig({
   },
   server: {
     port: 7023,
-    proxy: {
-      '/auth/google': {
-        target: 'https://webapp-healix-prod.azurewebsites.net',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/auth\/google/, '/auth/google')
-      }
-    }
+  },
+  build: {
+    drop: ['console', 'debugger'],
   },
 })

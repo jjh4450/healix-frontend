@@ -9,6 +9,9 @@ export default {
       fontFamily: {
         sans: ['"Pretendard Variable"', 'Pretendard', 'sans-serif'],
       },
+      backgroundImage: {
+        'kakao-login': "url('https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg')",
+      }
     },
   },
   plugins: [],
