@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import {DotLottieReact} from "@lottiefiles/dotlottie-react";
+import loading from '../assets/lz8ihbkj.lottie';
 
 /**
  * Start 컴포넌트는 사용자에게 알파벳을 선택하고 분석할 수 있는 인터페이스를 제공합니다.
@@ -103,6 +105,17 @@ function Start() {
 
     return (
         <>
+            <div className="w-1/2 h-1/2">
+                <DotLottieReact
+                    src={loading}
+                    loop
+                    autoplay
+                    segments={[0, 12]}
+                    mode="reverse"
+                    useFrameInterpolation={false}
+                />
+            </div>
+
             <section className="body-font text-white">
                 <div className='relative flex flex-col justify-center w-full h-screen bg-white'>
                     <div className='absolute top-0 flex flex-col justify-center text-black items-center w-full h-40 mt-20'>

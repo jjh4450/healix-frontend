@@ -1,13 +1,15 @@
 import React from 'react';
-import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
 import KakaoLogin from "react-kakao-login";
 import useAuthStore from "../store/authStore.js";
 import axios from "axios";
+import google_login_img from '../assets/google_login.webp';
+import kakao_login_img from '../assets/kakao_login.webp';
 
 function Login() {
-    const googleClientId = import.meta.env.VITE_APP_GOOGLE_CLIENT_ID;
     const kakaoJavascriptKey = import.meta.env.VITE_APP_KAKAO_JS_KEY;
     const baseurl = import.meta.env.VITE_APP_API_URL;
+
 
     const { login, logout } = useAuthStore((state) => ({
         login: state.login,
@@ -29,7 +31,8 @@ function Login() {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    withCredentials: true
+                    withCredentials: true,
+                    credentials: 'include'
                 }
             );
             return response;
@@ -41,6 +44,7 @@ function Login() {
 
     const google = {
         onSuccess: (response) => {
+            console.log(response);
             socialLogin('/auth/google', response.credential)
                 .then((response) => {
                     login();
@@ -81,22 +85,29 @@ function Login() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
-            <div className="mb-8">
-                <GoogleOAuthProvider clientId={googleClientId}>
+            <div className="flex items-center rounded-md p-1 pr-10 mb-4 relative overflow-hidden bg-gray-100">
+                <img  src={google_login_img} alt="logo" className="w-10 h-10 mx-4 p-1.5"/>
+                구글로 로그인하기
+                <div className="absolute h-full w-full opacity-5">
                     <GoogleLogin
+                        className="h-full w-full"
                         onSuccess={credentialResponse => google.onSuccess(credentialResponse)}
                         onError={google.onError}
                     />
-                </GoogleOAuthProvider>
+                </div>
             </div>
-            <div className="mb-8">
-                <KakaoLogin
-                    className="bg-kakao-login bg-cover bg-center h-screen"
-                    token={kakaoJavascriptKey}
-                    onSuccess={credentialResponse => kakao.onSuccess(credentialResponse)}
-                    onFail={kakao.onFail}
-                    onLogout={kakao.onLogout}
-                />
+            <div className="flex items-center rounded-md p-1 pr-10 mb-4 relative overflow-hidden bg-kakao-yellow">
+                <img src={kakao_login_img} alt="logo" className="w-10 h-10 mx-4"/>
+                카카오 로그인 하기
+                <div className="absolute h-full w-full opacity-0">
+                    <KakaoLogin
+                        className="h-full w-full"
+                        token={kakaoJavascriptKey}
+                        onSuccess={credentialResponse => kakao.onSuccess(credentialResponse)}
+                        onFail={kakao.onFail}
+                        onLogout={kakao.onLogout}
+                    />
+                </div>
             </div>
         </div>
     );
