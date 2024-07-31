@@ -18,4 +18,10 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './src/assets'),
     },
   },
+  server: {
+    port: 7023,
+  },
+  build: {
+    drop: ['console', 'debugger'],
+  },
 })
