@@ -22,18 +22,10 @@ function Start() {
     const bodyPart = [['머리', '얼굴', '목'], ['가슴', '복부'], ['골반', '팔', '다리'], ['기타']];
 
     return (<>
-        <div className="w-full flex justify-center h-[300px]">
-            <Lottie
-                loop
-                animationData={loading}
-                play
-            />
-        </div>
-
         <section className="body-font text-white flex justify-center items-center h-full">
             <div className="flex flex-col justify-between items-center w-11/12 h-full">
                 <div className="flex flex-col text-black items-center w-full mb-5">
-                    <h1 className="font-semibold ml-2 mt-2 text-2xl lg:text-4xl ">
+                    <h1 className="font-semibold ml-2 mt-2 text-2xl sm:text-4xl ">
                         증상을 통해<br/> 내 몸의 문제를 분석해드려요
                     </h1>
                     <p className="mt-2">증상이 있는 부위를 선택해주세요.(중복가능)</p>
@@ -44,7 +36,7 @@ function Start() {
                             {part.map((item, index) => (
                                 <WhiteButton key={index} onClick={() => handleWhiteBtnClick(item)}
                                              selected={selectedParts.includes(item)}
-                                             className="w-24 sm:w-48 h-14 lg:m-4"
+                                             className="w-24 w-48 h-14 lg:m-4"
                                 >
                                     {item}
                                 </WhiteButton>))}
