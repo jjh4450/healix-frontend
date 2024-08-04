@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import left_arrow_img from '../assets/left_arrow.webp';
 
-/**
- * Text 컴포넌트는 사용자가 증상에 대한 상세 설명을 입력할 수 있는 인터페이스를 제공합니다.
- *
- * @component
- * @example
- * return (
- *   <Text />
- * )
- */
 function Text() {
     const isMobile = useMediaQuery({ query: '(max-width: 500px)' });
     const location = useLocation();
@@ -18,12 +10,10 @@ function Text() {
     const [text, setText] = useState('');
     const isAnyText = text !== '';
 
-    // 핸들러 함수로 입력 값을 상태로 저장
     const handleText = (e) => {
         setText(e.target.value);
     };
 
-    // 파란 버튼 컴포넌트
     const Bluebtn = ({ hover, color, link, disabled }) => {
         const isBlue = color === 'bg-healix-skyblue';
         const buttonClassNames = `${hover} text-white transition ease-in-out flex justify-center items-center rounded-full w-full h-16 m-2 ${
@@ -54,9 +44,7 @@ function Text() {
     return (
         <div className="w-full h-[900px] flex flex-col bg-healix-gray">
             <Link to="/">
-                <svg className={`${isMobile ? 'w-[30px] h-[30px] m-4' : 'w-[40px] h-[40px] m-8'}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
-                    <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
-                </svg>
+                <img src={left_arrow_img} alt='left_arrow' className={`${isMobile ? 'w-[40px] h-[40px] m-2' : 'w-[50px] h-[50px] m-8'}`} />
             </Link>
             <div className="p-4 w-full h-3/5 flex justify-center flex-col items-center">
                 <h1 className={`font-semibold ${isMobile ? 'text-[30px]' : 'text-4xl'} m-2`}>자세한 증상을 작성해주세요.</h1>
@@ -82,7 +70,7 @@ function Text() {
                 <p className="text-2xl m-2 text-[#3C3C3C]">선택한 증상부위</p>
                 <div className="flex flex-row">
                     {symptomSites.map((site, index) => (
-                        <div key={index} className={`flex justify-center items-center text-[#3C3C3C] ${isMobile ? 'w-20 h-10 text-lg' : 'w-48 h-14 text-xl'} bg-healix-gray border border-solid rounded-full border-healix-btn-border m-2`}>
+                        <div key={index} className={`flex justify-center items-center text-[#3C3C3C] ${isMobile ? 'w-20 h-10 text-base' : 'w-48 h-14 text-xl'} bg-healix-gray border border-solid rounded-full border-healix-btn-border m-2`}>
                             {site}
                         </div>
                     ))}

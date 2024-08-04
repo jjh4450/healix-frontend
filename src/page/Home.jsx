@@ -4,15 +4,6 @@ import loading from '../assets/lz8ihbkj.lottie';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 
-/**
- * Start 컴포넌트는 사용자에게 증상 부위를 선택하고 분석할 수 있는 인터페이스를 제공합니다.
- *
- * @component
- * @example
- * return (
- *   <Start />
- * )
- */
 function Start() {
     const isMobile = useMediaQuery({ query: '(max-width: 500px)' });
     const [selectedParts, setSelectedParts] = useState([]);
@@ -22,14 +13,12 @@ function Start() {
         // selectedParts가 변경될 때마다 실행될 코드
     }, [selectedParts]);
 
-    // 흰색 버튼 클릭 핸들러
     const handleWhiteBtnClick = (part) => {
         setSelectedParts((prev) =>
             prev.includes(part) ? prev.filter(p => p !== part) : [...prev, part]
         );
     };
 
-    // 흰색 버튼 컴포넌트
     const Whitebtn = ({ text }) => {
         const isSelected = selectedParts.includes(text);
 
@@ -45,7 +34,6 @@ function Start() {
         );
     };
 
-    // 파란 버튼 컴포넌트
     const Bluebtn = ({ hover, color, text, link, disabled }) => {
         const isBlue = color === 'bg-healix-skyblue';
         const buttonClassNames = `${hover} transition ease-in-out flex justify-center items-center rounded-full w-full h-16 m-2 ${
