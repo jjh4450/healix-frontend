@@ -10,7 +10,7 @@ import Footer from './widgets/Footer'
 
 function App() {
   return (
-    <>
+    <div className="bg-healix-gray">
       <Header/>
       <Routes>
         <Route path='' element={<Home/>}/>
@@ -20,7 +20,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
       </Routes>
       <Footer/>
-    </>
+    </div>
   )
 }
 

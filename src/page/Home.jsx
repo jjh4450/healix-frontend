@@ -3,13 +3,16 @@ import Lottie from "react-lottie-player";
 import loading from '../assets/HEALIX.json';
 import {Link} from 'react-router-dom';
 import WhiteButton from "../components/WhiteButton.jsx";
+import BlueButton from "../components/BlueButton.jsx";
+import NavyButton from "../components/NavyButton.jsx";
 
 function Start() {
     const [selectedParts, setSelectedParts] = useState([]);
-    const isAnySelected = selectedParts.length > 0;
+    const [isAnySelected, setIsAnySelected] = useState(false);
 
     useEffect(() => {
         // selectedParts가 변경될 때마다 실행될 코드
+        setIsAnySelected(selectedParts.length > 0);
     }, [selectedParts]);
 
     const handleWhiteBtnClick = (part) => {
@@ -46,16 +49,13 @@ function Start() {
     const bodyPart = [['머리', '얼굴', '목'], ['가슴', '복부'], ['골반', '팔', '다리'], ['기타']];
 
     return (
-        <div className="bg-healix-gray">
+        <>
             <div className="w-full flex justify-center h-[300px]">
-                {/*<div className="w-[300px] h-full">*/}
                     <Lottie
                         loop
                         animationData={loading}
                         play
-                        // style={{ width: , height: 150 }}
                     />
-                {/*</div>*/}
             </div>
 
             <section className="body-font text-white flex justify-center items-center h-full">
@@ -81,14 +81,19 @@ function Start() {
                         ))}
                     </div>
                     <div className="flex justify-center items-center flex-col w-[700px] max-w-full mt-4 px-2">
-                        <Bluebtn hover="hover:bg-healix-skyblue" color="bg-healix-skyblue" text="증상 입력하기" link="/text"
-                                 disabled={!isAnySelected}/>
-                        <Bluebtn hover="hover:bg-healix-navy-hover" color="bg-healix-navy" text="분석 기록 / 예약 정보 확인하기"
-                                 link="/login"/>
+                        <Link state={selectedParts} to={isAnySelected ? '/text':''} className="w-full">
+                            <BlueButton selected={isAnySelected}
+                                        onClick={console.log('증상 입력하기 버튼 클릭됨')}
+                                        className="w-full h-16"
+                            > 증상 입력하기 </BlueButton>
+                        </Link>
+                        <Link to="/login" className="w-full">
+                            <NavyButton className="w-full h-16"> 분석 기록 / 예약 정보 확인하기 </NavyButton>
+                        </Link>
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     );
 }
 
