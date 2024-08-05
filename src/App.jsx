@@ -37,11 +37,11 @@ function App() {
                         />
                     </div>
                 )}
-                    <Routes>
-                        {pages.map((page, index) => (
-                            <Route key={index} path={page.path} element={<page.component/>}/>
-                        ))}
-                    </Routes>
+                <Routes>
+                    {pages.map((page, index) => (
+                        <Route key={index} path={page.path} element={<page.component/>}/>
+                    ))}
+                </Routes>
 
             </div>
             <Footer/>

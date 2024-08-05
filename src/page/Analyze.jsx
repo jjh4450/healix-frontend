@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import convertToEnglish from '../util/symptomSitesConverter.js';
 import useSymptomSitesStore from "../store/symptomSitesStore.js";
 import axios from "axios";
@@ -23,12 +23,12 @@ function Analyze() {
     const [loading, setLoading] = useState(true);
 
     // State and actions from stores
-    const { updateAnalyzeResult, diseaseName, diseaseSolution } = useAnalyzeResultStore((state) => ({
+    const {updateAnalyzeResult, diseaseName, diseaseSolution} = useAnalyzeResultStore((state) => ({
         updateAnalyzeResult: state.updateAnalyzeResult,
         diseaseName: state.diseaseName,
         diseaseSolution: state.diseaseSolution,
     }));
-    const { symptomSites, age, gender, prompt, realAge } = useSymptomSitesStore();
+    const {symptomSites, age, gender, prompt, realAge} = useSymptomSitesStore();
 
     const navigate = useNavigate();
 
@@ -64,9 +64,9 @@ function Analyze() {
                         <h1 className="font-semibold mt-2 text-2xl sm:text-4xl">분석 결과</h1>
                         <p className="mt-1 sm:mt-2 text-gray-500">
                             아픈 부위: {symptomSites.join(', ')}
-                            <br />
+                            <br/>
                             증상: {prompt}
-                            <br />
+                            <br/>
                             {gender}, {realAge}
                         </p>
                     </div>
@@ -76,10 +76,10 @@ function Analyze() {
                     </div>
                     <div className="flex flex-col items-center mt-8">
                         <div className="flex items-center justify-center mb-2">
-                            <DownArrow className="h-5 w-5 text-blue-600" />
+                            <DownArrow className="h-5 w-5 text-blue-600"/>
                         </div>
                         <p className="text-center text-gray-700 mb-4">
-                            근처에 진찰과 상담을 받아볼 만한 병원으로<br />
+                            근처에 진찰과 상담을 받아볼 만한 병원으로<br/>
                             예약을 도와드릴까요?
                         </p>
                     </div>

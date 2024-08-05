@@ -9,7 +9,7 @@ const useSympthomSitesStore = create((set) => ({
     age: -1,
     gender: '',
     prompt: '',
-    realAge:'',
+    realAge: '',
 
     addSymptomSite: (site) => set((state) => ({
         symptomSites: state.symptomSites.includes(site)

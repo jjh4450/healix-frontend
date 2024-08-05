@@ -1,5 +1,5 @@
 import React from 'react';
-import {Map, MapMarker} from "react-kakao-maps-sdk";
+import {Map} from "react-kakao-maps-sdk";
 
 function Maptest() {
     return (
