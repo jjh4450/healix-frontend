@@ -1,6 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import Lottie from "react-lottie-player";
-import loading from '../assets/HEALIX.json';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import WhiteButton from "../components/WhiteButton.jsx";
 import BlueButton from "../components/BlueButton.jsx";

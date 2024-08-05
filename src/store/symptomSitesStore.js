@@ -19,11 +19,11 @@ const useSympthomSitesStore = create((set) => ({
         symptomSites: state.symptomSites.filter((s) => s !== site)
     })),
 
-    setAge: (age) => set({ age }),
+    setAge: (age) => set({age}),
 
-    setGender: (gender) => set({ gender }),
+    setGender: (gender) => set({gender}),
 
-    clearSymptomSites: () => set({ symptomSites: [] }),
+    clearSymptomSites: () => set({symptomSites: []}),
 
     resetStore: () => set({
         symptomSites: [],

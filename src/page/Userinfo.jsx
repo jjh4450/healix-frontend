@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
+import React, {useState} from 'react';
+import {Link, useLocation} from 'react-router-dom';
+import {useMediaQuery} from 'react-responsive';
 import left_arrow_img from '../assets/left_arrow.webp';
 
 function Userinfo() {
-    const isMobile = useMediaQuery({ query: '(max-width: 500px)' });
+    const isMobile = useMediaQuery({query: '(max-width: 500px)'});
     const location = useLocation();
     const state = location.state || {};
     const [selectedGen, setSelectedGen] = useState('');
@@ -45,7 +45,7 @@ function Userinfo() {
     };
 
     // 흰색 버튼 컴포넌트
-    const Whitebtn = ({ text, onClick }) => {
+    const Whitebtn = ({text, onClick}) => {
         const isSelected = selectedGen === text || selectedAge === text;
 
         return (
@@ -61,7 +61,7 @@ function Userinfo() {
     };
 
     // Bluebtn 컴포넌트를 const로 정의
-    const Bluebtn = ({ hover, color, text, link, disabled, state }) => {
+    const Bluebtn = ({hover, color, text, link, disabled, state}) => {
         const isBlue = color === 'bg-healix-skyblue';
         const buttonClassNames = `${hover} transition ease-in-out flex justify-center text-white items-center rounded-full w-full max-w-xs h-16 ${
             isBlue ? disabled ? color : 'bg-healix-blue' : color
@@ -91,7 +91,8 @@ function Userinfo() {
     return (
         <div className='w-full h-screen flex flex-col bg-healix-gray'>
             <Link to="/text">
-                <img src={left_arrow_img} alt='left_arrow' className={`${isMobile ? 'w-[40px] h-[40px] m-2' : 'w-[50px] h-[50px] m-8'}`} />
+                <img src={left_arrow_img} alt='left_arrow'
+                     className={`${isMobile ? 'w-[40px] h-[40px] m-2' : 'w-[50px] h-[50px] m-8'}`}/>
             </Link>
             <div className='mt-14 p-4 w-full flex flex-col items-center'>
                 <h1 className={`font-semibold ${isMobile ? 'text-[30px]' : 'text-4xl'} m-2`}>기본 정보를 입력해주세요.</h1>
@@ -104,24 +105,25 @@ function Userinfo() {
                     성별
                 </p>
                 <div className='flex'>
-                    <Whitebtn text={'남'} onClick={handleWhiteBtnClick} />
-                    <Whitebtn text={'여'} onClick={handleWhiteBtnClick} />
+                    <Whitebtn text={'남'} onClick={handleWhiteBtnClick}/>
+                    <Whitebtn text={'여'} onClick={handleWhiteBtnClick}/>
                 </div>
             </div>
             <div className='p-4 w-full flex flex-col items-center'>
                 <p className={`font-medium ${isMobile ? 'text-[20px]' : 'text-2xl'} m-2 text-[#3C3C3C] text-center`}>
-                   (만) 나이
+                    (만) 나이
                 </p>
                 <div className='flex flex-wrap justify-center'>
-                    <Whitebtn text={'0~12세'} onClick={handleAgeBtnClick} />
-                    <Whitebtn text={'13~18세'} onClick={handleAgeBtnClick} />
-                    <Whitebtn text={'19~34세'} onClick={handleAgeBtnClick} />
-                    <Whitebtn text={'35~64세'} onClick={handleAgeBtnClick} />
-                    <Whitebtn text={'65세 이상'} onClick={handleAgeBtnClick} />
+                    <Whitebtn text={'0~12세'} onClick={handleAgeBtnClick}/>
+                    <Whitebtn text={'13~18세'} onClick={handleAgeBtnClick}/>
+                    <Whitebtn text={'19~34세'} onClick={handleAgeBtnClick}/>
+                    <Whitebtn text={'35~64세'} onClick={handleAgeBtnClick}/>
+                    <Whitebtn text={'65세 이상'} onClick={handleAgeBtnClick}/>
                 </div>
             </div>
             <div className='flex flex-grow justify-center items-center flex-col w-full'>
-                <Bluebtn hover="hover:bg-healix-skyblue" color="bg-healix-skyblue" text="다음" link="/analyze" disabled={!selectedGen || !selectedAge} state={{ ...state, gender: genderState, birthYear }} />
+                <Bluebtn hover="hover:bg-healix-skyblue" color="bg-healix-skyblue" text="다음" link="/analyze"
+                         disabled={!selectedGen || !selectedAge} state={{...state, gender: genderState, birthYear}}/>
             </div>
         </div>
     );

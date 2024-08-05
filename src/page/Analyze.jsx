@@ -1,10 +1,10 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 
 function Analyze() {
     const location = useLocation();
-        const state = location.state || {};
-        console.log('!!!'+state)
+    const state = location.state || {};
+    console.log('!!!' + state)
     return (
         <div className="p-4">
             <h1 className="text-2xl font-bold mb-4">전달받은 상태</h1>

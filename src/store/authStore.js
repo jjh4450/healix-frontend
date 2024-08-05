@@ -7,10 +7,10 @@ import Cookies from 'js-cookie';
  */
 const useAuthStore = create((set) => ({
     isLoggedIn: !!Cookies.get('Authorization'),
-    login: () => set({ isLoggedIn: true }),
+    login: () => set({isLoggedIn: true}),
     logout: () => {
         Cookies.remove('authToken');
-        set({ isLoggedIn: false });
+        set({isLoggedIn: false});
     },
 }));
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BlueButton = ({ selected, onClick, children, className, round}) => (
+const BlueButton = ({selected, onClick, children, className, round}) => (
     <button
         onClick={onClick}
         className={`transition ease-in-out border border-healix-btn-border text-xl lg:text-2xl rounded-${round || 'full'} text-white ${
