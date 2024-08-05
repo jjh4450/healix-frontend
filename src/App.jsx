@@ -26,11 +26,11 @@ function App() {
     const location = useLocation();
 
     return (
-        <div className="bg-healix-gray flex flex-col h-screen justify-around ">
-            <Header />
-            <div className="flex flex-col lg:flex-row justify-center items-center my-4"> {/* 내용 중앙 배치 */}
+        <div className="bg-healix-gray flex flex-col h-screen justify-between">
+            {window.innerWidth >= 768 && <Header />}
+            <div className="flex flex-col lg:flex-row justify-center items-center my-4 basis-1/3 gap-x-0"> {/* 내용 중앙 배치 */}
                 {(hloading.includes(location.pathname) || window.innerWidth >= 768) && (
-                        <div className="w-1/3">
+                        <div className="w-1/2 sm:w-1/4 max-h-dvh">
                             <Lottie
                                 loop
                                 animationData={loading}
@@ -38,11 +38,14 @@ function App() {
                             />
                         </div>
                 )}
-                <Routes>
-                    {pages.map((page, index) => (
-                        <Route key={index} path={page.path} element={<page.component/>}/>
-                    ))}
-                </Routes>
+                <div className="basis-1/3">
+                    <Routes>
+                        {pages.map((page, index) => (
+                            <Route key={index} path={page.path} element={<page.component/>}/>
+                        ))}
+                    </Routes>
+                </div>
+
             </div>
             <Footer />
         </div>
