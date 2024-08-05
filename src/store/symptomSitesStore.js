@@ -9,6 +9,7 @@ const useSympthomSitesStore = create((set) => ({
     age: -1,
     gender: '',
     prompt: '',
+    realAge:'',
 
     addSymptomSite: (site) => set((state) => ({
         symptomSites: state.symptomSites.includes(site)
@@ -27,6 +28,8 @@ const useSympthomSitesStore = create((set) => ({
     setPrompt: (prompt) => set({prompt}),
 
     clearSymptomSites: () => set({symptomSites: []}),
+
+    setRealAge: (realAge) => set({realAge}),
 
     resetStore: () => set({
         symptomSites: [],

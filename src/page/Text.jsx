@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import WhiteButton from "../components/WhiteButton.jsx";
 import NavyButton from "../components/NavyButton.jsx";
 import useSympthomSitesStore from "../store/symptomSitesStore.js";
@@ -14,21 +14,21 @@ const AGE_OPTIONS = [
     {label: '65세 이상', value: 70},
 ];
 const GENDER_OPTIONS = [
-    {label: '남성', value: 'MEN'},
+    {label: '남성', value: 'MAN'},
     {label: '여성', value: 'WOMAN'},
 ];
 
 function Text() {
-    const baseurl = import.meta.env.VITE_APP_API_URL;
-    const {symptomSites, age, gender, prompt, setAge, setGender, setPrompt} = useSympthomSitesStore();
+    const {symptomSites, age, gender, prompt, setAge, setGender, setPrompt, setRealAge} = useSympthomSitesStore();
     const [selectedParts, setSelectedParts] = useState([]);
     const [showUserInfo, setShowUserInfo] = useState(age !== -1 || gender !== '' || prompt !== '');
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (symptomSites.length === 0) {
-            window.location.href = '/';
+            navigate('/');
         }
-    }, [symptomSites]);
+    }, []);
 
     const handleText = (e) => setPrompt(e.target.value);
 
@@ -52,7 +52,10 @@ function Text() {
                 {AGE_OPTIONS.map(({label, value}) => (
                     <WhiteButton
                         key={label}
-                        onClick={() => setAge(value)}
+                        onClick={() => {
+                            setAge(value);
+                            setRealAge(label);
+                        }}
                         selected={age === value}
                         className="mr-2 py-2 px-2 mb-2 text-sm"
                     >

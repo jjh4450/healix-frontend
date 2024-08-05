@@ -2,7 +2,6 @@ import {Route, Routes, useLocation} from 'react-router-dom';
 import Header from './widgets/Header';
 import Home from './page/Home';
 import Text from './page/Text.jsx';
-import Userinfo from './page/Userinfo.jsx';
 import Analyze from './page/Analyze.jsx';
 import Login from './components/Login.jsx';
 import Footer from './widgets/Footer';
@@ -13,13 +12,12 @@ import React from "react";
 const pages = [
     {path: '/', component: Home},
     {path: '/text', component: Text},
-    {path: '/userinfo', component: Userinfo},
     {path: '/analyze', component: Analyze},
     {path: '/login', component: Login},
 ];
 
 const hloading = [
-    '/', '/text'
+    '/', '/text', '/analyze', '/login'
 ]
 
 function App() {
@@ -39,13 +37,11 @@ function App() {
                         />
                     </div>
                 )}
-                <div className="basis-1/3">
                     <Routes>
                         {pages.map((page, index) => (
                             <Route key={index} path={page.path} element={<page.component/>}/>
                         ))}
                     </Routes>
-                </div>
 
             </div>
             <Footer/>
