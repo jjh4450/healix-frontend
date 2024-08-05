@@ -6,8 +6,9 @@ import create from 'zustand';
  */
 const useSympthomSitesStore = create((set) => ({
     symptomSites: [],
-    age: 0,
+    age: -1,
     gender: '',
+    prompt: '',
 
     addSymptomSite: (site) => set((state) => ({
         symptomSites: state.symptomSites.includes(site)
@@ -22,6 +23,8 @@ const useSympthomSitesStore = create((set) => ({
     setAge: (age) => set({age}),
 
     setGender: (gender) => set({gender}),
+
+    setPrompt: (prompt) => set({prompt}),
 
     clearSymptomSites: () => set({symptomSites: []}),
 

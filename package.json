@@ -23,6 +23,7 @@
     "react-lottie-player": "^2.1.0",
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.26.0",
+    "react-transition-group": "^4.4.5",
     "zustand": "^4.5.4"
   },
   "devDependencies": {
