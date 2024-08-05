@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleLogin } from '@react-oauth/google';
+import {GoogleLogin} from '@react-oauth/google';
 import KakaoLogin from "react-kakao-login";
 import useAuthStore from "../store/authStore.js";
 import axios from "axios";
@@ -11,7 +11,7 @@ function Login() {
     const baseurl = import.meta.env.VITE_APP_API_URL;
 
 
-    const { login, logout } = useAuthStore((state) => ({
+    const {login, logout} = useAuthStore((state) => ({
         login: state.login,
         logout: state.logout
     }));
@@ -26,7 +26,7 @@ function Login() {
         try {
             const response = await axios.put(
                 `${baseurl}${url}`,
-                { token: token },
+                {token: token},
                 {
                     headers: {
                         'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ function Login() {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
             <div className="flex items-center rounded-md p-1 pr-10 mb-4 relative overflow-hidden bg-gray-100">
-                <img  src={google_login_img} alt="logo" className="w-10 h-10 mx-4 p-1.5"/>
+                <img src={google_login_img} alt="logo" className="w-10 h-10 mx-4 p-1.5"/>
                 구글로 로그인하기
                 <div className="absolute h-full w-full opacity-5">
                     <GoogleLogin
