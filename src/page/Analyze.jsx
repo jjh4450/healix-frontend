@@ -42,12 +42,12 @@ function Analyze() {
                 gender: gender,
                 birthYear: new Date().getFullYear() - age,
             }).then((response) => {
-                updateAnalyzeResult(response.data.id, response.data.diseaseName, response.data.diseaseSolution);
+                updateAnalyzeResult(response.data.examineId, response.data.diseaseName, response.data.diseaseSolution);
                 console.log('Analysis result:', response.data);
                 setLoading(false);
             }).catch((error) => {
                 if (error.response && error.response.status === 400) {
-                    updateAnalyzeResult(0, defaultResult.diseaseName, defaultResult.diseaseSolution);
+                    updateAnalyzeResult(-1, defaultResult.diseaseName, defaultResult.diseaseSolution);
                 } else {
                     console.error('Error fetching analysis:', error);
                 }
