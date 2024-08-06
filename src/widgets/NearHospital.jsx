@@ -22,7 +22,7 @@ function NearHospital() {
                             <span className="font-medium">이유:</span> {data.reason}
                         </p>
                         <Link to='/start_reservation' state={data.hospitalId}>
-                            <NavyButton>
+                            <NavyButton className="p-2">
                                 예약하기
                             </NavyButton>
                         </Link>
