@@ -97,9 +97,9 @@ function ReservationInput() {
                     {error && <p className="text-red-500">{error}</p>}
 
                     <div className="flex justify-between mt-4">
-                        <NavyButton onClick={handleReservation}>예약하기</NavyButton>
+                        <NavyButton className="p-2 text-sm" onClick={handleReservation}>예약하기</NavyButton>
                         <Link to="/reservation_result">
-                            <WhiteButton>취소</WhiteButton>
+                            <WhiteButton className="p-4">취소</WhiteButton>
                         </Link>
                     </div>
                 </div>
