@@ -12,6 +12,7 @@ import React from "react";
 import Near from "./page/Near.jsx";
 import ReserVationAccept from "./page/ReservationAccept.jsx";
 import ReservationInput from "./page/ReservationInput.jsx";
+import Maptest from "./components/Maptest.jsx";
 
 const pages = [
     {path: '/', component: Home},
@@ -21,7 +22,8 @@ const pages = [
     {path: '/near', component: Near},
     {path: '/reservation', component: Reservation},
     {path: '/reservation_accept', component: ReserVationAccept},
-    {path: '/start_reservation', component: ReservationInput}
+    {path: '/start_reservation', component: ReservationInput},
+    {path: '/maptest', component: Maptest}
 ];
 
 const hloading = [
