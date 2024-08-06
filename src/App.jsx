@@ -5,15 +5,21 @@ import Text from './page/Text.jsx';
 import Analyze from './page/Analyze.jsx';
 import Login from './components/Login.jsx';
 import Footer from './widgets/Footer';
+import Reservation from './page/Reservation.jsx';
 import Lottie from "react-lottie-player";
 import loading from "./assets/HEALIX.json";
 import React from "react";
+import Near from "./page/Near.jsx";
+import ReserVationAccept from "./page/ReservationAccept.jsx";
 
 const pages = [
     {path: '/', component: Home},
     {path: '/text', component: Text},
     {path: '/analyze', component: Analyze},
     {path: '/login', component: Login},
+    {path: '/near', component: Near},
+    {path: '/reservation', component: Reservation},
+    {path: '/reservation_accept', component: ReserVationAccept}
 ];
 
 const hloading = [
