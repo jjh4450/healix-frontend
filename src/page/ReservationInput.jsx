@@ -34,6 +34,13 @@ function ReservationInput() {
             setError("모든 필드를 채워주세요.");
             return;
         }
+
+        const today = new Date().toISOString().split('T')[0]; // Get the current date in YYYY-MM-DD format
+        if (date < today) {
+            setError("예약 날짜는 오늘 이후여야 합니다.");
+            return;
+        }
+
         setError(null);
         const dateTime = `${date}T${time}:00`;
         const data = { symptom, dateTime };
@@ -43,10 +50,10 @@ function ReservationInput() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                withCredentials:true,
+                withCredentials: true,
             });
             if (response.status === 201) {
-                navigate('/reservation')
+                navigate('/reservation');
                 console.log('예약 성공:', response.data);
             }
         } catch (err) {

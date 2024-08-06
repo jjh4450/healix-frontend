@@ -13,11 +13,6 @@ function Login() {
 
     const navigate = useNavigate();
 
-    const {login, logout} = useAuthStore((state) => ({
-        login: state.login,
-        logout: state.logout
-    }));
-
     /**
      * 로그인 요청을 보내는 함수
      * @param {string} url - API 엔드포인트 URL
@@ -34,7 +29,6 @@ function Login() {
                         'Content-Type': 'application/json'
                     },
                     withCredentials: true,
-                    credentials: 'include'
                 }
             );
             return response;
@@ -49,18 +43,15 @@ function Login() {
             console.log(response);
             socialLogin('/auth/google', response.credential)
                 .then((response) => {
-                    login();
                     navigate(-1)
                     console.log('로그인 성공:', response.data);
 
                 })
                 .catch((error) => {
-                    logout();
                     console.error('로그인 실패:', error);
                 });
         },
         onError: () => {
-            logout();
             console.log('Google 로그인 실패');
         }
     };
@@ -69,21 +60,17 @@ function Login() {
         onSuccess: (response) => {
             socialLogin('/auth/kakao', response.response.access_token)
                 .then((response) => {
-                    login();
                     navigate(-1)
                     console.log('로그인 성공:', response.data);
                 })
                 .catch((error) => {
-                    logout();
                     console.error('로그인 실패:', error);
                 });
         },
         onFail: (error) => {
-            logout();
             console.error('Kakao 로그인 실패:', error);
         },
         onLogout: () => {
-            logout();
             console.info('Kakao 로그아웃');
         }
     };
