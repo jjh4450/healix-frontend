@@ -14,9 +14,10 @@ function ReservationInput() {
     const hospitalId = location.state || {};
     const navigate = useNavigate();
 
+    const baseurl = import.meta.env.VITE_APP_API_URL;
+
     // useEffect를 컴포넌트 최상위에서 정의
     useEffect(() => {
-        const baseurl = import.meta.env.VITE_APP_API_URL;
         axios.get(`${baseurl}/auth/verify`,{
             withCredentials: true,
             credentials: 'include'
@@ -34,17 +35,18 @@ function ReservationInput() {
             return;
         }
         setError(null);
-        const dateTime = `${date}T${time}`;
+        const dateTime = `${date}T${time}:00`;
         const data = { symptom, dateTime };
 
         try {
-            const response = await axios.post(`/hospital/${hospitalId}/appointment`, data, {
+            const response = await axios.post(`${baseurl}/hospital/${hospitalId}/appointment`, data, {
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                withCredentials:true,
             });
             if (response.status === 201) {
-                // 성공적으로 예약 생성
+                navigate('/reservation')
                 console.log('예약 성공:', response.data);
             }
         } catch (err) {

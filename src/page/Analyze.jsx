@@ -23,11 +23,7 @@ function Analyze() {
     const [loading, setLoading] = useState(true);
 
     // State and actions from stores
-    const {updateAnalyzeResult, diseaseName, diseaseSolution} = useAnalyzeResultStore((state) => ({
-        updateAnalyzeResult: state.updateAnalyzeResult,
-        diseaseName: state.diseaseName,
-        diseaseSolution: state.diseaseSolution,
-    }));
+    const {updateAnalyzeResult, diseaseName, diseaseSolution} = useAnalyzeResultStore();
     const {symptomSites, age, gender, prompt, realAge} = useSymptomSitesStore();
 
     const navigate = useNavigate();

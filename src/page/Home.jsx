@@ -48,7 +48,7 @@ function Start() {
                                     className="w-full h-16"
                         > 증상 입력하기 </BlueButton>
                     </Link>
-                    <Link to="/login" className="w-full">
+                    <Link to="/reservation" className="w-full">
                         <NavyButton className="mt-4 w-full h-16"> 분석 기록 / 예약 정보 확인하기 </NavyButton>
                     </Link>
                 </div>
