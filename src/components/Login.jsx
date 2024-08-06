@@ -5,11 +5,13 @@ import useAuthStore from "../store/authStore.js";
 import axios from "axios";
 import google_login_img from '../assets/google_login.webp';
 import kakao_login_img from '../assets/kakao_login.webp';
+import {useNavigate} from "react-router-dom";
 
 function Login() {
     const kakaoJavascriptKey = import.meta.env.VITE_APP_KAKAO_JS_KEY;
     const baseurl = import.meta.env.VITE_APP_API_URL;
 
+    const navigate = useNavigate();
 
     const {login, logout} = useAuthStore((state) => ({
         login: state.login,
@@ -48,7 +50,9 @@ function Login() {
             socialLogin('/auth/google', response.credential)
                 .then((response) => {
                     login();
+                    navigate(-1)
                     console.log('로그인 성공:', response.data);
+
                 })
                 .catch((error) => {
                     logout();
@@ -66,6 +70,7 @@ function Login() {
             socialLogin('/auth/kakao', response.response.access_token)
                 .then((response) => {
                     login();
+                    navigate(-1)
                     console.log('로그인 성공:', response.data);
                 })
                 .catch((error) => {
