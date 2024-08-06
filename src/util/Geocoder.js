@@ -14,3 +14,5 @@ export const getCoordsByAddress = (address) => {
         });
     });
 };
+
+export default getCoordsByAddress;
