@@ -24,7 +24,8 @@ function ReservationInput() {
         }).then((response) => {
             console.log(response);
             setIsLogin(true);
-        }).catch(() => {
+        }).catch((err) => {
+            console.log(err)
             navigate('/login');
         });
     }, [navigate]);
