@@ -1,15 +1,16 @@
 import React from 'react';
 
 function Start() {
+
     return (
-        <section className="body-font flex flex-col justify-center items-center min-h-screen bg-healix-gray text-gray-800 p-8">
+        <section className="body-font flex flex-col justify-center items-center bg-healix-gray text-gray-800 p-8 z-10">
             <div className="max-w-3xl w-full bg-white shadow-lg rounded-lg p-8 space-y-6">
                 <h1 className="text-4xl font-bold text-center text-healix-navy-hover">즐거웠어요! - HEALIX 개발진 일동</h1>
                 <p className="text-lg text-center">
                     안타깝게도 힐릭스의 여러 기능들이 비용적인 문제로 인해 서비스를 종료하게 되었습니다.<br/>
-                    (전국 모든 병원 데이터를 DB에 가지고 있었거든요... ㅋㅋㅋ)
+                    (전국 모든 병원 데이터를 DB에 가지고 있었거든요... ㅋㅋㅋ)<br/>
                     도메인도 곧 만료된답니다! ㅠㅠ <br/>
-                    <a href="https://pre-healix.jeje.work" target="_blank" rel="noopener noreferrer" className="text-healix-navy-hover hover:underline">pre-healix.jeje.work </a>
+                    <a href="https://pre-healix.jeje.work" target="_blank" rel="noopener noreferrer" className="text-healix-navy-hover hover:underline">pre-healix.jeje.work</a>
                     도메인으로 이전 예정이니 참고해주세요! <br/>
                 </p>
                 <hr className="my-8 border-gray-300"/>
