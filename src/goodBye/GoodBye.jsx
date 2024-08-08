@@ -21,7 +21,7 @@ function Start() {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-center">
                     <div className="space-y-2">
-                        <h3 className="font-semibold">팀장/기획/FE</h3>
+                        <h3 className="font-semibold">팀장/FE/기획</h3>
                         <a href="https://github.com/kim-jaeyeon" target="_blank" rel="noopener noreferrer" className="text-healix-navy-hover hover:underline">김재연</a>
                     </div>
                     <div className="space-y-2">
@@ -41,7 +41,7 @@ function Start() {
                         <a href="https://jeje.work/github" target="_blank" rel="noopener noreferrer" className="text-healix-navy-hover hover:underline">조준환</a>
                     </div>
                     <div className="space-y-2">
-                        <h3 className="font-semibold">FE</h3>
+                        <h3 className="font-semibold">FE/디자인</h3>
                         <a href="https://github.com/hyeseon-cpu" target="_blank" rel="noopener noreferrer" className="text-healix-navy-hover hover:underline">최혜선 (hyeseo_n_n)</a>
                     </div>
                     <div className="sm:col-span-2 space-y-2">
